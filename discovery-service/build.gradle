@@ -38,7 +38,7 @@ dependencyManagement {
 }
 
 dependencies {
-  compile('org.springframework.boot:spring-boot-starter')
+  compile('org.springframework.boot:spring-boot-starter-actuator')
   compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
   compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   compile("org.jetbrains.kotlin:kotlin-reflect")
@@ -51,4 +51,8 @@ idea {
     outputDir = compileKotlin.destinationDir
     testOutputDir = compileTestKotlin.destinationDir
   }
+}
+
+bootRun {
+  jvmArgs = ['-Xmx128m']
 }

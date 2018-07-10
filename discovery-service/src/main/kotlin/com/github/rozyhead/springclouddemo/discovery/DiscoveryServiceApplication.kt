@@ -1,4 +1,4 @@
-package com.github.rozyhead.springclouddemo
+package com.github.rozyhead.springclouddemo.discovery
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
