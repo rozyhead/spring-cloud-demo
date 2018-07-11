@@ -30,3 +30,6 @@ security:
       # Resource Serverがトークンをチェックするためのエンドポイントの認可設定
       check-token-access: isAuthenticated()
 
+logging:
+  level:
+    org.springframework.security: DEBUG
