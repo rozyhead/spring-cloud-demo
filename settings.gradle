@@ -1,3 +1,4 @@
 rootProject.name = 'spring-cloud-demo'
 include 'discovery-service'
 include 'user-service'
+include 'task-service'

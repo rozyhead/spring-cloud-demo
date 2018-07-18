@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: task-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8191
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.security: DEBUG
