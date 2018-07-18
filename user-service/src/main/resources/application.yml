@@ -1,11 +1,9 @@
 spring:
   application:
     name: user-service
-
-  security:
-    # in memory ユーザーの設定
-    user:
-      password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 server:
   port: 8181
@@ -16,19 +14,6 @@ eureka:
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
-
-security:
-  oauth2:
-    # in memory クライアントの設定
-    client:
-      client-id: demo
-      client-secret: demo
-      scope: openid,tweet.read,tweet.write
-      grant-type: password,authorization_code
-
-    authorization:
-      # Resource Serverがトークンをチェックするためのエンドポイントの認可設定
-      check-token-access: isAuthenticated()
 
 logging:
   level:
