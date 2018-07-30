@@ -66,10 +66,10 @@ class UserServiceApplication {
 
     override fun configure(clients: ClientDetailsServiceConfigurer) {
       clients.inMemory()
-          .withClient("demo")
-          .secret(passwordEncoder.encode("demo"))
+          .withClient("task-service")
+          .secret(passwordEncoder.encode("task-service"))
           .authorizedGrantTypes("password", "authorization_code")
-          .scopes("openid", "tweet.read", "tweet.write")
+          .scopes("openid", "task.read", "task.write")
     }
 
     override fun configure(endpoints: AuthorizationServerEndpointsConfigurer) {

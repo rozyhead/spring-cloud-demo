@@ -16,3 +16,11 @@ eureka:
 logging:
   level:
     org.springframework.security: DEBUG
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8181/uaa/oauth/check_token
+    client:
+      client-id: task-service
+      client-secret: task-service
