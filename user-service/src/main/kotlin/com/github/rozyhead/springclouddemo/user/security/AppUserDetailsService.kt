@@ -1,6 +1,7 @@
-package com.github.rozyhead.springclouddemo.user
+package com.github.rozyhead.springclouddemo.user.security
 
 import com.github.rozyhead.springclouddemo.user.repository.UserRepository
+import org.slf4j.LoggerFactory
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -8,14 +9,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Component
 
 @Component
-class UserDetailsServiceImpl(
+class AppUserDetailsService(
     val userRepository: UserRepository
 ) : UserDetailsService {
 
+  val log = LoggerFactory.getLogger(javaClass)!!
+
   override fun loadUserByUsername(username: String): UserDetails {
+    log.info("loadUserByUsername: {}", username)
     val user = userRepository.findByName(username) ?: throw UsernameNotFoundException(username)
-    val authorities = listOf(SimpleGrantedAuthority("ROLE_${user.role.name}"))
-    return org.springframework.security.core.userdetails.User(user.name, user.password, authorities)
+    return AppUser(user.id.toString(), user.name, user.password, user.role.name, user.email)
   }
 
 }
+
