@@ -1,5 +1,6 @@
 package com.github.rozyhead.springclouddemo.user
 
+import com.github.rozyhead.springclouddemo.common.security.AppUserAuthenticationConverter
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -92,13 +93,15 @@ class UserServiceApplication {
     @Bean
     fun tokenStore(): TokenStore = JwtTokenStore(accessTokenConverter())
 
-    @Autowired
-    lateinit var userTokenConverter: UserAuthenticationConverter
+    @Bean
+    fun appUserAuthenticationConverter(): UserAuthenticationConverter {
+      return AppUserAuthenticationConverter()
+    }
 
     @Bean
     fun accessTokenConverter(): JwtAccessTokenConverter {
       val internalAccessTokenConverter = DefaultAccessTokenConverter()
-      internalAccessTokenConverter.setUserTokenConverter(userTokenConverter)
+      internalAccessTokenConverter.setUserTokenConverter(appUserAuthenticationConverter())
 
       val converter = JwtAccessTokenConverter()
       converter.accessTokenConverter = internalAccessTokenConverter

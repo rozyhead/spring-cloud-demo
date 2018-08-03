@@ -1,12 +1,10 @@
-package com.github.rozyhead.springclouddemo.user.security
+package com.github.rozyhead.springclouddemo.common.security
 
 import org.slf4j.LoggerFactory
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
 import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticationConverter
-import org.springframework.stereotype.Component
 
-@Component
 class AppUserAuthenticationConverter : DefaultUserAuthenticationConverter() {
 
   val log = LoggerFactory.getLogger(javaClass)!!

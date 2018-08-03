@@ -1,8 +1,8 @@
 package com.github.rozyhead.springclouddemo.user.security
 
+import com.github.rozyhead.springclouddemo.common.security.AppUser
 import com.github.rozyhead.springclouddemo.user.repository.UserRepository
 import org.slf4j.LoggerFactory
-import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException

@@ -1,4 +1,4 @@
-package com.github.rozyhead.springclouddemo.user.security
+package com.github.rozyhead.springclouddemo.common.security
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
