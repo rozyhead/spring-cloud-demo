@@ -71,3 +71,7 @@ idea {
 bootRun {
   jvmArgs = ['-Xmx256m']
 }
+
+springBoot {
+  buildInfo()
+}
